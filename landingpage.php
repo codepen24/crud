@@ -1,16 +1,29 @@
-﻿<?php include_once('template/header.php'); ?>
+﻿<?php 
+    session_start();
+if(!empty($_SESSION['name'])) { ?>
+
+<?php include_once('template/header.php'); ?>
              
     <div class="col-md-4 py-5 bg-primary text-white text-center ">
         <div class="">
             <div class="card-body">
                 <a href="/"><img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%"></a>
                 <h2 class="py-3">Welcome</h2>
-                <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+                <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</pre>
+                <form action="#" method="post">
+                    <button type=submit" name="logout" id="" class="btn btn-danger">Logout</button>
+                </form>
+                <?php 
+                    if(isset($_POST['logout'])) {
+                        session_destroy();
+                        header('location: ../');
+                    }
+                ?>
             </div>
         </div>
     </div>
     <div class="col-md-8 py-5 border">
-        <h4 class="pb-4">User: <span style="font-weight: normal;">fredjil</span></h4> 
+    <h4 class="pb-4">User: <span style="font-weight: normal;"><?php echo $_SESSION['name']; ?></span></h4> 
 
         <form action="core/core_processing.php" method="POST">
             <div class="form-row">
@@ -29,3 +42,8 @@
     </div>
 
 <?php include_once('template/footer.php'); ?>
+<?php 
+} else {
+    header('location: ../404.php');
+}
+?>

@@ -15,7 +15,7 @@
         <form action="core/core_processing.php" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-12">
-                  <input id="Full Name" name="username" placeholder="Full Name" required="required" class="form-control" type="text" value="">
+                  <input id="Full Name" name="username" placeholder="Enter Email Address" required="required" class="form-control" type="text" value="">
                 </div>
                 <div class="form-group col-md-12">
                     <input name="userpassword" placeholder="Enter Password" class="form-control" required="required" type="password" value="">

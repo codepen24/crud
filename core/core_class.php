@@ -12,8 +12,8 @@ class registration {
 
 
     public function insert_registration($name, $email, $phone, $password) {
-        $insertion_cmd = $this->pdo->prepare('INSERT INTO users(username, useremail, userphone, userpass) VALUES(:username, :useremail, :userphone, :userpassword)');
-        $insertion_cmd->execute([
+        $smtp = $this->pdo->prepare('INSERT INTO users(username, useremail, userphone, userpass) VALUES(:username, :useremail, :userphone, :userpassword)');
+        $smtp->execute([
             'username' => $name,
             'useremail' => $email,
             'userphone' => $phone,
@@ -24,23 +24,30 @@ class registration {
     }
 
 
-    public function query_userlogin($name, $pass) {
+    public function query_userlogin($email, $pass) {
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-        $insertion_cmd = $this->pdo->query('SELECT * FROM users');
-        while($userLists = $insertion_cmd->fetch()) {
-            if($userLists->username == $name && $userLists->userpass == $pass) {
-                header('location: ../landingpage.php' );
-            } else {
-                header('location: ../404.php' );
-            }
-        } 
+        $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail = ? && userpass = ?');
+        $smtp->execute([$email, $pass]);
+        $smtp_ve = $smtp->fetch();
+        if($email === $smtp_ve->useremail && $pass === $smtp_ve->userpass) {
+            session_start();
+            $_SESSION['name'] = $smtp_ve->username;
+            header('location: ../landingpage.php');
+        } else {
+            header('location: ../404.php');
+        }
     }
 
 }
 
-$core = new registration($pdo);
+    $core = new registration($pdo);
 
 
+    function pres($pres_val) {
+        echo '<pre>';
+        print_r($pres_val);
+        echo '</pre>';
+    }
 
 
 ?>

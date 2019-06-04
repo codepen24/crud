@@ -9,7 +9,11 @@ include_once('core_class.php');
         $reg_phone = $_POST['userphone'];
         $reg_pass = $_POST['userpassword'];
         
-        $core->insert_registration($reg_name, $reg_email, $reg_phone, $reg_pass);
+        if(!empty($reg_name) && !empty($reg_email) && !empty($reg_phone) && !empty($reg_pass)) {
+            $core->insert_registration($reg_name, $reg_email, $reg_phone, $reg_pass);
+        } else {
+            header('location: ../registration.php'); 
+        } 
 
 
     } 
@@ -21,8 +25,11 @@ include_once('core_class.php');
         $reg_name = $_POST['username'];
         $reg_pass = $_POST['userpassword'];
         
-        $core->query_userlogin($reg_name, $reg_pass);
-
+        if(!empty($reg_name) && !empty($reg_pass)) {
+            $core->query_userlogin($reg_name, $reg_pass);
+        } else {
+            header('location: ../');
+        }
 
     } 
 

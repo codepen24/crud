@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="col-md-8 py-5 border">
-        <h4 class="pb-4">Dear customer you are not yet registered yet, Please create an account</span></h4> 
+        <h4 class="pb-4" style="color: red;">Dear customer you are not yet registered yet, Please create an account</span></h4> 
 
         <a class="btn btn-primary" href="../registration.php" role="button">Register</a>
 

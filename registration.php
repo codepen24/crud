@@ -4,7 +4,7 @@
         <div class="">
             <div class="card-body">
                 <a href="/"><img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%"></a>
-                <h2 class="py-3">Registration</h2>
+                <h2 class="py-3">Home</h2>
                 <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
             </div>
         </div>
