@@ -12,7 +12,7 @@
     <div class="col-md-8 py-5 border">
         <h4 class="pb-4">Please fill with your details</h4>
 
-        <form action="core/core_processing.php" method="POST">
+        <form id="registrationForm" action="core/core_processing.php" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-12">
                   <input id="Full Name" name="username" placeholder="Full Name" class="form-control" type="text" value="">
