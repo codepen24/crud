@@ -20,12 +20,10 @@ class registration {
             'userpassword' => $password
         ]);
 
-        header('location: ../' );
     }
 
 
     public function query_userlogin($email, $pass) {
-        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
         $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail = ? && userpass = ?');
         $smtp->execute([$email, $pass]);
         $smtp_ve = $smtp->fetch();
@@ -35,6 +33,15 @@ class registration {
             header('location: ../landingpage.php');
         } else {
             header('location: ../404.php');
+        }
+    }
+
+    
+    public function query_all_memebers() {
+        $smtp = $this->pdo->prepare('SELECT * FROM users');
+        $smtp_ve = $smtp->fetch();
+        foreach($smtp_ve as $smtp_v) {
+            print_r($smtp_v);
         }
     }
 

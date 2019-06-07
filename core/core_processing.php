@@ -11,10 +11,10 @@ include_once('core_class.php');
         
         if(!empty($reg_name) && !empty($reg_email) && !empty($reg_phone) && !empty($reg_pass)) {
             $core->insert_registration($reg_name, $reg_email, $reg_phone, $reg_pass);
-        } else {
-            header('location: ../registration.php'); 
-        } 
 
+            $core->query_all_memebers();
+
+        } 
 
     } 
 

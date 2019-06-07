@@ -21,18 +21,18 @@
                   <input type="email" name="useremail" class="form-control" id="" placeholder="Enter Email e.g xxx@gmail.com" value="">
                 </div>
                 <div class="form-group col-md-12">
-                    <input id="fasfafd" name="userphone" placeholder="Enter Phone Number" class="form-control" required="required" type="tel" value="">
+                    <input id="fasfafd" name="userphone" placeholder="Enter Phone Number" class="form-control" type="tel" value="">
                 </div>
                 <div class="form-group col-md-12">
-                    <input name="userpassword" placeholder="Enter Password" class="form-control" required="required" type="password" value="">
+                    <input name="userpassword" placeholder="Enter Password" class="form-control" type="password" value="">
                 </div>
                 <div class="form-group col-md-12">
-                    <input name="userconfirmpassword" placeholder="Confirm Password" class="form-control" required="required" type="password" value="">
+                    <input name="userconfirmpassword" placeholder="Confirm Password" class="form-control" type="password" value="">
                 </div>
                 <div class="form-group">
                     <div class="form-group">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2">
                           <label class="form-check-label" for="invalidCheck2">
                             <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
                           </label>
@@ -44,6 +44,10 @@
                 <button type="submit" name="register" class="btn btn-danger">Register</button>
             </div>
         </form>
+
+<div>
+    asdfjas;dfkasd
+</div>
 
     </div>
 

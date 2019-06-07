@@ -18,6 +18,8 @@
 
     $pdo_res = $pdo_func($sql_host, $sql_dbname, $sql_username, $sql_password);
 
+    $pdo_res->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
     $pdo = $pdo_res;
 
 
