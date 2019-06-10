@@ -38,10 +38,9 @@ class registration {
 
     
     public function query_all_memebers() {
-        $smtp = $this->pdo->prepare('SELECT * FROM users');
-        $smtp_ve = $smtp->fetch();
-        foreach($smtp_ve as $smtp_v) {
-            print_r($smtp_v);
+        $smtp = $this->pdo->query('SELECT * FROM users');
+        while($smtp_ve = $smtp->fetch()) {
+            json_encode($smtp_ve);
         }
     }
 
