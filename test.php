@@ -21,10 +21,14 @@
         e.preventDefault();
         request = new XMLHttpRequest(); 
         request.open('GET', 'core/core_query.php', true);
+        //request.open('GET', 'txt.json', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        // request.setRequestHeader('Content-Type', 'application/json');
         request.onload = function(data) {
             if(request.status >= 200 && request.status < 400) {
-                var fredjil = request.responseText;
-                console.log(fredjil);
+                // var test = JSON.parse(request.responseText);
+                var test = request.responseText;
+                console.log(test);
             } else {
                 console.log('error');
             }

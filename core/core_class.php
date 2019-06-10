@@ -19,28 +19,32 @@ class registration {
             'userphone' => $phone,
             'userpassword' => $password
         ]);
+        
 
     }
 
 
-    public function query_userlogin($email, $pass) {
-        $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail = ? && userpass = ?');
-        $smtp->execute([$email, $pass]);
-        $smtp_ve = $smtp->fetch();
-        if($email === $smtp_ve->useremail && $pass === $smtp_ve->userpass) {
-            session_start();
-            $_SESSION['name'] = $smtp_ve->username;
-            header('location: ../landingpage.php');
-        } else {
-            header('location: ../404.php');
-        }
-    }
+//    public function query_userlogin($email, $pass) {
+//        $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail = ? && userpass = ?');
+//        $smtp->execute([$email, $pass]);
+//        $smtp_ve = $smtp->fetch();
+//        if($email === $smtp_ve->useremail && $pass === $smtp_ve->userpass) {
+//            session_start();
+//            $_SESSION['name'] = $smtp_ve->username;
+//            header('location: ../landingpage.php');
+//        } else {
+//            header('location: ../404.php');
+//        }
+//    }
 
     
     public function query_all_memebers() {
-        $smtp = $this->pdo->query('SELECT * FROM users');
-        while($smtp_ve = $smtp->fetch()) {
-            json_encode($smtp_ve);
+        $smtp = $this->pdo->prepare('SELECT * FROM users');
+        $smtp->execute();
+        $smtfs = $smtp->fetchAll();
+        foreach($smtfs as $smtpf) {
+            $testall = json_encode($smtpf);
+            echo $testall;
         }
     }
 
