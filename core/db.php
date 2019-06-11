@@ -1,7 +1,7 @@
 <?php 
 
     $sql_username = 'u168730839_zuksi';
-    $sql_password = 'zuksi';
+    $sql_password = 'sULs1xLFOOlv';
 
     $sql_host = 'sql172.main-hosting.eu';
     $sql_dbname = 'u168730839_zuksi';
