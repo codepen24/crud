@@ -36,7 +36,7 @@
         var qemail_value = this.value;
         request = new XMLHttpRequest();
         request.open('POST', 'core/core_query.php?qemail='+qemail_value, true);
-
+        request.setRequestHeader('Content-Type', 'application/json');
         request.onload = function() {
             if(request.status >= 200 && request.status < 400) {
                 console.log(JSON.parse(request.responseText));

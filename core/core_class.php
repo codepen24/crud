@@ -39,9 +39,9 @@ class registration {
 
     
     public function email_auth($e_auth) {
-        $e_auth = $e_auth;
-        $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail = :e_auth');
-        $smtp->execute(['e_auth' => $e_auth]);
+        $e_auth = '%'.$e_auth.'%';
+        $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail LIKE ?');
+        $smtp->execute([$e_auth]);
         $smtfs = $smtp->fetchAll();
         foreach($smtfs as $smtpf) {
             print_r(json_encode($smtpf['useremail']));
