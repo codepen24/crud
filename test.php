@@ -10,32 +10,9 @@
         </div>
     </div>
     <div class="col-md-8 py-5 border">
-                <button id="dikoi" type="click" name="testing">Test This</button>
+                <button id="qemail" type="click" name="testing">Test This</button>
     </div>
 
 
-<script charset="utf-8">
-(function() {
-    dikoi.addEventListener('click', query_realtime, false);
-    function query_realtime(e) {
-        e.preventDefault();
-        request = new XMLHttpRequest(); 
-        request.open('GET', 'core/core_query.php', true);
-        //request.open('GET', 'txt.json', true);
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        // request.setRequestHeader('Content-Type', 'application/json');
-        request.onload = function(data) {
-            if(request.status >= 200 && request.status < 400) {
-                // var test = JSON.parse(request.responseText);
-                var test = request.responseText;
-                console.log(test);
-            } else {
-                console.log('error');
-            }
-        };
-        request.send();
-    }
-})();    
-</script>
 
 <?php include_once('template/footer.php'); ?>

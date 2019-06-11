@@ -18,10 +18,10 @@
                   <input id="Full Name" name="username" placeholder="Full Name" class="form-control" type="text" value="">
                 </div>
                 <div class="form-group col-md-12">
-                  <input type="email" name="useremail" class="form-control" id="" placeholder="Enter Email e.g xxx@gmail.com" value="">
+                  <input type="email" id="qemail_value" name="useremail" class="form-control" id="" placeholder="Enter Email e.g xxx@gmail.com" value="">
                 </div>
                 <div class="form-group col-md-12">
-                    <input id="fasfafd" name="userphone" placeholder="Enter Phone Number" class="form-control" type="tel" value="">
+                    <input name="userphone" placeholder="Enter Phone Number" class="form-control" type="tel" value="">
                 </div>
                 <div class="form-group col-md-12">
                     <input name="userpassword" placeholder="Enter Password" class="form-control" type="password" value="">
@@ -41,49 +41,11 @@
                 </div>
             </div>
             <div class="form-row">
-                <button type="submit" name="register" class="btn btn-danger">Register</button>
+                <button type="submit" name="register" id="strick" class="btn btn-danger">Register</button>
             </div>
         </form>
 
 
     </div>
-<script>
-    
-(function() {
 
-    registrationForm.addEventListener('submit', insert_reg_user, false);
-
-    function insert_reg_user(e) {
-        e.preventDefault();
-        var registrationForm_action = this.getAttribute('action'),
-        registrationForm_method = this.getAttribute('method'),
-        registrationForm_data = {};
-
-
-        this.querySelectorAll('[name]').forEach(function(item, i){
-            var name = item.getAttribute('name'),
-                value = item.value;
-            registrationForm_data[name] = value;
-
-        });
-        
-        var request = new XMLHttpRequest();
-        request.open(registrationForm_method, registrationForm_action, true);
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
-        request.onload = function() {
-            if(request.status >= 200 && request.status < 400) {
-                console.log(request.responseText);
-            } else {
-                console.log('error');
-            }
-        };
-
-        request.send($.param(registrationForm_data));
-          
-    }
-
-})();
-
-</script>
 <?php include_once('template/footer.php'); ?>

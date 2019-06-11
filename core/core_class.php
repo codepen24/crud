@@ -38,13 +38,13 @@ class registration {
 //    }
 
     
-    public function query_all_memebers() {
-        $smtp = $this->pdo->prepare('SELECT * FROM users');
-        $smtp->execute();
+    public function email_auth($e_auth) {
+        $e_auth = $e_auth;
+        $smtp = $this->pdo->prepare('SELECT * FROM users WHERE useremail = :e_auth');
+        $smtp->execute(['e_auth' => $e_auth]);
         $smtfs = $smtp->fetchAll();
         foreach($smtfs as $smtpf) {
-            $testall = json_encode($smtpf);
-            echo $testall;
+            print_r(json_encode($smtpf['useremail']));
         }
     }
 
