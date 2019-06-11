@@ -1,10 +1,10 @@
 <?php 
 
-    $sql_username = 'root';
-    $sql_password = '';
+    $sql_username = 'u168730839_zuksi';
+    $sql_password = 'zuksi';
 
-    $sql_host = 'localhost';
-    $sql_dbname = 'exam';
+    $sql_host = 'sql172.main-hosting.eu';
+    $sql_dbname = 'u168730839_zuksi';
 
     function pdo($sql_host, $sql_dbname, $sql_username, $sql_password) {
         try {
